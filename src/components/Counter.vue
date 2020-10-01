@@ -13,21 +13,15 @@
 </template>
 
 <script>
-import { ref, computed } from "vue";
+import useEventSpace from "@/use/event-space.js";
 export default {
   setup() {
-    const capacity = ref(3);
-    const attending = ref(["Tim", "Bob", "John"]);
+    // return useEventSpace();
+    // OR
+    // thi is best practice because You don't hide arguments You are passing
+    const {capacity, attending, increaseCapacity, spacesLeft} = useEventSpace()
 
-    const spacesLeft = computed(() => {
-      return capacity.value - attending.value.length;
-    });
-
-    function increaseCapacity() {
-      capacity.value++;
-    }
-
-    return { capacity, attending, increaseCapacity, spacesLeft };
+    return {capacity, attending, increaseCapacity, spacesLeft}
   },
 };
 </script>
