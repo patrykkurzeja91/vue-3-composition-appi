@@ -15,13 +15,13 @@
 <script>
 import useEventSpace from "@/use/event-space.js";
 export default {
-  setup() {
+  async setup() {
     // return useEventSpace();
     // OR
     // thi is best practice because You don't hide arguments You are passing
-    const {capacity, attending, increaseCapacity, spacesLeft} = useEventSpace()
+    const { capacity, attending, increaseCapacity, spacesLeft } = await useEventSpace()
 
-    return {capacity, attending, increaseCapacity, spacesLeft}
+    return { capacity, attending, increaseCapacity, spacesLeft }
   },
 };
 </script>
