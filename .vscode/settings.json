@@ -1,0 +1,5 @@
+{
+  "eslint.workingDirectories": [
+    "./forms", "./composition-api-intro"
+  ],
+}
