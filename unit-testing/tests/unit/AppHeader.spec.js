@@ -5,7 +5,7 @@
 
 import AppHeader from '@/components/AppHeader'
 
-import { mount } from '@vue/test-utils'
+import { mount, shallowMount } from '@vue/test-utils'
 
 describe('AppHeader', () => {
   test('If user is not logged in, do not show login button', () => {
