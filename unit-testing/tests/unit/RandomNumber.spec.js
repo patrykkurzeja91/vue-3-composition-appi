@@ -21,12 +21,9 @@ describe('RandomNumber', () => {
 
   test('If button is clicked, randomNumber should be 200 and 300', async () => {
     const wrapper = shallowMount(RandomNumber, {
-      // changed props to strings as we can
-      // accidentally pass it in this component
-      // and output will bee different
       propsData: {
-        min: '200',
-        max: '300'
+        min: 200,
+        max: 300
       }
     })
     wrapper.find('button').trigger('click')
@@ -37,16 +34,3 @@ describe('RandomNumber', () => {
     expect(randomNumber).toBeLessThanOrEqual(300)
   })
 })
-
-// import { shallowMount } from "@vue/test-utils";
-// import HelloWorld from "@/components/HelloWorld.vue";
-
-// describe("HelloWorld.vue", () => {
-//   it("renders props.msg when passed", () => {
-//     const msg = "new message";
-//     const wrapper = shallowMount(HelloWorld, {
-//       props: { msg }
-//     });
-//     expect(wrapper.text()).toMatch(msg);
-//   });
-// });

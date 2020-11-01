@@ -2,7 +2,7 @@
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
     <RandomNumber />
-    <RandomNumber :min="200" :max="300" />
+    <RandomNumber :min="parseInt(200)" :max="parseInt(300)" />
   </div>
 </template>
 
