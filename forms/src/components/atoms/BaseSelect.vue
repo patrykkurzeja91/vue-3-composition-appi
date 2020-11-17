@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
   <label v-if="label">{{ label }}</label>
   <select
     :value="modelValue"
@@ -12,8 +12,8 @@
   >
     <option
       v-for="option in options"
-      :value="option"
       :key="option"
+      :value="option"
       :selected="option === modelValue"
     >
       {{ option }}
