@@ -46,23 +46,11 @@
       {{ event }}
       <h3>Are pets allowed?</h3>
       <div>
-        <input
+        <BaseRadioGroup
           v-model="event.pets"
-          type="radio"
-          :value="1"
           name="pets"
-        >
-        <label>Yes</label>
-      </div>
-
-      <div>
-        <input
-          v-model="event.pets"
-          type="radio"
-          :value="0"
-          name="pets"
-        >
-        <label>No</label>
+          :options="petOptions"
+        />
       </div>
 
       <h3>Extras</h3>
@@ -106,9 +94,10 @@
 import BaseInput from '@/components/atoms/BaseInput'
 import BaseSelect from '@/components/atoms/BaseSelect'
 import BaseCheckbox from '@/components/atoms/BaseCheckbox'
+import BaseRadioGroup from '@/components/atoms/BaseRadioGroup'
 
 export default {
-  components: { BaseCheckbox, BaseInput, BaseSelect },
+  components: { BaseCheckbox, BaseInput, BaseSelect, BaseRadioGroup },
   data () {
     return {
       categories: [
@@ -130,7 +119,11 @@ export default {
           catering: false,
           music: false
         }
-      }
+      },
+      petOptions: [
+        { label: 'dogs', value: 0 },
+        { label: 'cats', value: 1 }
+      ]
     }
   }
 }
