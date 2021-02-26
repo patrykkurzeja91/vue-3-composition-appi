@@ -10,7 +10,6 @@ const requireComponent = require.context(
 )
 
 const app = createApp(App)
-
 requireComponent.keys().forEach(fileName => {
   const componentConfig = requireComponent(fileName)
 

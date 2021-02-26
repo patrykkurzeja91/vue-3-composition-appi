@@ -1,10 +1,10 @@
-<template>
+<template lang="html">
   <div>
     <h1>Create an event</h1>
     <form>
       <BaseSelect
-        :options="categories"
         v-model="event.category"
+        :options="categories"
         label="Select a category"
       />
       <!-- <label>Select a category</label>
@@ -21,9 +21,17 @@
 
       <h3>Name & describe your event</h3>
 
-      <BaseInput v-model="event.title" label="Title" type="text" />
+      <BaseInput
+        v-model="event.title"
+        label="Title"
+        type="text"
+      />
 
-      <BaseInput v-model="event.description" label="Descriptioon" type="text" />
+      <BaseInput
+        v-model="event.description"
+        label="Descriptioon"
+        type="text"
+      />
 
       <h3>Where is your event?</h3>
 
@@ -33,32 +41,51 @@
         type="text"
         placeholder="Location"
         class="field"
-      />
+      >
 
       {{ event }}
       <h3>Are pets allowed?</h3>
       <div>
-        <input type="radio" v-model="event.pets" :value="1" name="pets" />
-        <label>Yes</label>
-      </div>
-
-      <div>
-        <input type="radio" v-model="event.pets" :value="0" name="pets" />
-        <label>No</label>
+        <BaseRadioGroup
+          v-model="event.pets"
+          name="pets"
+          :options="petOptions"
+        />
       </div>
 
       <h3>Extras</h3>
       <div>
-        <input type="checkbox" v-model="event.extras.catering" class="field" />
-        <label>Catering</label>
+        <!-- <input
+          v-model="event.extras.catering"
+          type="checkbox"
+          class="field"
+        >
+        <label>Catering</label> -->
+        <BaseCheckbox
+          v-model="event.extras.catering"
+          label="Catering"
+        />
       </div>
 
       <div>
-        <input type="checkbox" v-model="event.extras.music" class="field" />
-        <label>Live music</label>
+        <!-- <input
+          v-model="event.extras.music"
+          type="checkbox"
+          class="field"
+        >
+        <label>Live music</label> -->
+        <BaseCheckbox
+          v-model="event.extras.music"
+          label="Live music"
+        />
       </div>
 
-      <button class="button -fill-gradient" type="submit">Submit</button>
+      <button
+        class="button -fill-gradient"
+        type="submit"
+      >
+        Submit
+      </button>
     </form>
   </div>
 </template>
@@ -66,8 +93,11 @@
 <script>
 import BaseInput from '@/components/atoms/BaseInput'
 import BaseSelect from '@/components/atoms/BaseSelect'
+import BaseCheckbox from '@/components/atoms/BaseCheckbox'
+import BaseRadioGroup from '@/components/atoms/BaseRadioGroup'
+
 export default {
-  components: { BaseInput, BaseSelect },
+  components: { BaseCheckbox, BaseInput, BaseSelect, BaseRadioGroup },
   data () {
     return {
       categories: [
@@ -89,7 +119,11 @@ export default {
           catering: false,
           music: false
         }
-      }
+      },
+      petOptions: [
+        { label: 'dogs', value: 0 },
+        { label: 'cats', value: 1 }
+      ]
     }
   }
 }
